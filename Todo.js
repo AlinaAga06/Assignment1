@@ -65,9 +65,9 @@ const Todo = () => {
             type="text"
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
-            placeholder="Enter a new task"
+            placeholder="Enter new task"
           />
-          <button onClick={addTask}>Add Task</button>
+          <button onClick={addTask}>ADD</button>
         </div>
         <div className="filter-buttons">
           <button
