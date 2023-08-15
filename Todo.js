@@ -4,12 +4,7 @@ import "./Todo.css";
 const Todo = () => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [filter, setFilter] = useState("all");
-
-  const toggleDarkMode = () => {
-    setIsDarkMode((prevDarkMode) => !prevDarkMode);
-  };
 
   const addTask = () => {
     if (newTask.trim() !== "") {
@@ -51,13 +46,7 @@ const Todo = () => {
   });
 
   return (
-    <div className={`todo-container ${isDarkMode ? "dark-mode" : ""}`}>
-      <button
-        className={`dark-mode-toggle ${isDarkMode ? "active" : ""}`}
-        onClick={toggleDarkMode}
-      >
-        {isDarkMode ? "Light Mode" : "Dark Mode"}
-      </button>
+    <div className="todo-container">
       <div className="todo-content">
         <h1>TODO</h1>
         <div className="task-input">
@@ -65,9 +54,9 @@ const Todo = () => {
             type="text"
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
-            placeholder="Enter new task"
+            placeholder="Enter a new task"
           />
-          <button onClick={addTask}>ADD</button>
+          <button onClick={addTask}>Add Task</button>
         </div>
         <div className="filter-buttons">
           <button
@@ -94,10 +83,7 @@ const Todo = () => {
             <li key={task.id} className={task.completed ? "completed" : ""}>
               <span onClick={() => toggleComplete(task.id)}>{task.text}</span>
               <button onClick={() => deleteTask(task.id)}>
-                {" "}
-                <span role="img" aria-label="Delete">
-                🗑️
-                </span>
+                Delete <span role="img" aria-label="Delete">🗑️</span>
               </button>
             </li>
           ))}
