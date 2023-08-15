@@ -52,7 +52,10 @@ const Todo = () => {
 
   return (
     <div className={`todo-container ${isDarkMode ? "dark-mode" : ""}`}>
-      <button className={`dark-mode-toggle ${isDarkMode ? "active" : ""}`} onClick={toggleDarkMode}>
+      <button
+        className={`dark-mode-toggle ${isDarkMode ? "active" : ""}`}
+        onClick={toggleDarkMode}
+      >
         {isDarkMode ? "Light Mode" : "Dark Mode"}
       </button>
       <div className="todo-content">
@@ -91,7 +94,10 @@ const Todo = () => {
             <li key={task.id} className={task.completed ? "completed" : ""}>
               <span onClick={() => toggleComplete(task.id)}>{task.text}</span>
               <button onClick={() => deleteTask(task.id)}>
-                Delete <span role="img" aria-label="Delete">❌</span>
+                {" "}
+                <span role="img" aria-label="Delete">
+                🗑️
+                </span>
               </button>
             </li>
           ))}
