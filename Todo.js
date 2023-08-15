@@ -52,7 +52,7 @@ const Todo = () => {
 
   return (
     <div className={`todo-container ${isDarkMode ? "dark-mode" : ""}`}>
-      <button className="dark-mode-toggle" onClick={toggleDarkMode}>
+      <button className={`dark-mode-toggle ${isDarkMode ? "active" : ""}`} onClick={toggleDarkMode}>
         {isDarkMode ? "Light Mode" : "Dark Mode"}
       </button>
       <div className="todo-content">
@@ -71,26 +71,28 @@ const Todo = () => {
             className={filter === "all" ? "active" : ""}
             onClick={() => filterTasks("all")}
           >
-            ALL
+            All
           </button>
           <button
             className={filter === "active" ? "active" : ""}
             onClick={() => filterTasks("active")}
           >
-            ACTIVE
+            Active
           </button>
           <button
             className={filter === "completed" ? "active" : ""}
             onClick={() => filterTasks("completed")}
           >
-            COMPLETED
+            Completed
           </button>
         </div>
         <ul className="task-list">
           {filteredTasks.map((task) => (
             <li key={task.id} className={task.completed ? "completed" : ""}>
               <span onClick={() => toggleComplete(task.id)}>{task.text}</span>
-              <button onClick={() => deleteTask(task.id)}>Delete</button>
+              <button onClick={() => deleteTask(task.id)}>
+                Delete <span role="img" aria-label="Delete">❌</span>
+              </button>
             </li>
           ))}
         </ul>
