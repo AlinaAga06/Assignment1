@@ -4,7 +4,6 @@ import "./Todo.css";
 const Todo = () => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
-  const [filter, setFilter] = useState("all");
 
   const addTask = () => {
     if (newTask.trim() !== "") {
@@ -28,22 +27,9 @@ const Todo = () => {
     setTasks(tasks.filter((task) => task.id !== taskId));
   };
 
-  const filterTasks = (status) => {
-    setFilter(status);
-  };
-
   const clearCompleted = () => {
     setTasks(tasks.filter((task) => !task.completed));
   };
-
-  const filteredTasks = tasks.filter((task) => {
-    if (filter === "active") {
-      return !task.completed;
-    } else if (filter === "completed") {
-      return task.completed;
-    }
-    return true;
-  });
 
   return (
     <div className="todo-container">
@@ -54,36 +40,19 @@ const Todo = () => {
             type="text"
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
-            placeholder="Enter a new task"
+            placeholder="Enter New Task"
           />
-          <button onClick={addTask}>Add Task</button>
-        </div>
-        <div className="filter-buttons">
-          <button
-            className={filter === "all" ? "active" : ""}
-            onClick={() => filterTasks("all")}
-          >
-            All
-          </button>
-          <button
-            className={filter === "active" ? "active" : ""}
-            onClick={() => filterTasks("active")}
-          >
-            Active
-          </button>
-          <button
-            className={filter === "completed" ? "active" : ""}
-            onClick={() => filterTasks("completed")}
-          >
-            Completed
-          </button>
+          <button onClick={addTask}>ADD</button>
         </div>
         <ul className="task-list">
-          {filteredTasks.map((task) => (
+          {tasks.map((task) => (
             <li key={task.id} className={task.completed ? "completed" : ""}>
-              <span onClick={() => toggleComplete(task.id)}>{task.text}</span>
+              <span>{task.text}</span>
+              <button onClick={() => toggleComplete(task.id)}>
+                {task.completed ? "Incomplete" : "Complete"}
+              </button>
               <button onClick={() => deleteTask(task.id)}>
-                Delete <span role="img" aria-label="Delete">🗑️</span>
+                 <span role="img" aria-label="Delete">🗑️</span>
               </button>
             </li>
           ))}
@@ -98,3 +67,6 @@ const Todo = () => {
 };
 
 export default Todo;
+
+
+
