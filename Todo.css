@@ -22,9 +22,9 @@
 .task-input button {
   margin-left: 10px;
   padding: 5px 10px;
-  background-color:#007bff;
+  background-color:  #ff8080;
   color: white;
-  border: none
+  border: none;
   border-radius: 3px;
   cursor: pointer;
 }
@@ -45,7 +45,11 @@
 }
 
 .task-list li.completed {
+  background-color: #f0f0f0;
   text-decoration: line-through;
+}
+
+.task-list li.completed span {
   opacity: 0.7;
 }
 
@@ -54,13 +58,45 @@
 }
 
 .task-list li button {
-  padding: 5px 10px;
-  background-color: #dc3545;
+  padding: 3px 8px;
+  background-color: #ff8080;
   color: white;
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  margin-left: 10px;
+  font-size: 14px;
 }
+
+.task-list li button.complete-button {
+  background-color: #80ff80;
+  color: #333;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer button {
+  background-color: #ff4646;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.footer button:hover {
+  background-color: #e63939;
+}
+
 /* Small screens */
 @media (max-width: 600px) {
   .todo-container {
@@ -91,91 +127,4 @@
   }
 
   /* Other responsive styles here */
-}
-
-
-
-
-
-
-.todo-content {
-  margin-top: 20px;
-}
-
-.task-input {
-  margin-bottom: 10px;
-}
-
-.filter-buttons {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.filter-buttons button {
-  background-color: #f8f8f8;
-  color: #333;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 5px 10px;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-.filter-buttons button.active {
-  background-color: #ccc;
-}
-
-.task-list {
-  list-style: none;
-  padding: 0;
-}
-
-.task-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-bottom: 5px;
-}
-
-.task-list li.completed {
-  background-color: #f0f0f0;
-  text-decoration: line-through;
-}
-
-.task-list li button {
-  background-color: #fff;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  padding: 3px 8px;
-  cursor: pointer;
-}
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.footer p {
-  margin: 0;
-}
-
-.footer button {
-  background-color: #ff4646;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.footer button:hover {
-  background-color: #e63939;
 }
